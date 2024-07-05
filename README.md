@@ -9,6 +9,8 @@ para mostrar una lista de personajes de Dragon Ball.
 
 Se utiliza la bilbioteca "axios", para realizar las peticiones HTTP a la API.
 
+""IMPORTANTE ARMEN UN GRUPO EN WHATSAPPS ASI NOS COMUNICAMOS MEJOR LES PARECE"""
 
++54 9 2616546212 PABLO PINEA
 
 
