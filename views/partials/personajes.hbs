@@ -1,6 +1,13 @@
 <h1> Personajes DRAGON BALL</h1>
 <ul>
     {{#each characters}}
-      <li> <img src="{{image}}"> {{name}} - {{description}} - {{affiliation}} </li>
+      <li class="dbz-personaje"> 
+        <h1>{{name}}</h1>
+        <div>
+          <img src="{{image}}"> 
+          <h2> {{description}} </h2>
+          <p>{{affiliation}}</p>
+        </div>  
+      </li>
     {{/each}}
 </ul>

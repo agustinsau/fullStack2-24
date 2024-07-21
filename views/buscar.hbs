@@ -1,0 +1,26 @@
+<h2>{{title}}</h2>
+<p>{{message}}</p>
+
+<form action="/buscar" method="post">
+    <input type="text" name="name" placeholder="Ingrese el nombre del personaje a buscar" required>
+    <button type="submit">Buscar</button>
+</form>
+
+<p>{{error}}</p>
+
+<div class="dbz-personaje">
+    {{#each character}}
+
+        <h3>{{name}}</h3>
+        <p>Ki: {{ki}}</p>
+        <p>Max Ki: {{maxKi}}</p>
+        <p>Raza: {{race}}</p>
+        <p>Género: {{gender}}</p>
+        <p>Descripción: {{description}}</p>
+        <img src="{{image}}" alt="{{name}}">
+        <p>Afiliación: {{affiliation}}</p>
+        
+      {{/each}}
+</div>
+
+

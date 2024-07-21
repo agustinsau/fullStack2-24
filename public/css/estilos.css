@@ -1,35 +1,127 @@
-*{ 
+/* Resetting default styles */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
-body{
-  background-color: #e6e5e5;
-  font-family: Arial, Helvetica, sans-serif;
+
+/* Variables CSS */
+:root {
+  --background-color: #e6e5e5;
+  --font-family: 'Arial, Helvetica, sans-serif';
+  --container-bg: #9eb9ac;
+  --container-padding: 2rem;
+  --container-max-width: 1200px;
+  --heading-color: #ffffff;
+  --heading1-bg: #dd581f;
+  --heading2-bg: #888787;
+  --nav-bg: #444;
+  --nav-hover-bg: #333;
+  --nav-link-color: white;
+  --nav-link-padding: 5px 10px;
+  --dbz-personaje-bg: #60957c;
 }
-.container{
-  margin: 2rem;
-  background-color: #1c8e55;
-  padding: 2rem;
+
+/* Global styles */
+body {
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  line-height: 1.6;
 }
+
+/* Container styles */
+.container {
+  margin: 2rem auto;
+  background-color: var(--container-bg);
+  padding: var(--container-padding);
+  max-width: var(--container-max-width);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1, h2 {
+  color: var(--heading-color);
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 30px 0;
+  text-align: center;
+}
+
 h1 {
-  color: #dd581f;
+  background-color: var(--heading1-bg);
 }
-.nav{
-  background-color: #444;
+
+h2 {
+  background-color: var(--heading2-bg);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+/* Navigation styles */
+.nav {
+  background-color: var(--nav-bg);
   padding: 1rem;
   text-align: center;
-
 }
-.nav li{
+
+.nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav li {
   list-style: none;
-  padding: 0;
+  margin: 0 10px;
 }
 
-.nav a{
-  color: white;
+.nav a {
+  color: var(--nav-link-color);
+  text-decoration: none;
+  padding: var(--nav-link-padding);
+  transition: background 0.3s;
 }
 
-img{
-  width: 250px;
-  height: 300px;
+.nav a:hover {
+  background-color: var(--nav-hover-bg);
+  border-radius: 5px;
+}
+
+/* Image styles */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+}
+
+/* List styles */
+ul li {
+  list-style: none;
+}
+
+/* Specific class for DBZ characters */
+.dbz-personaje {
+  background-color: var(--dbz-personaje-bg);
+  border-radius: 5px;
+  padding: 30px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+  h1, h2 {
+    margin: 20px 0;
+    width: auto;
+  }
+  .nav ul {
+    flex-direction: column;
+  }
+  .nav li {
+    margin: 5px 0;
+  }
 }

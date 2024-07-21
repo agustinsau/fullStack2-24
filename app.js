@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const hbs = require("hbs");
 const uploadRouter = require("./routes/uploadRoutes"); // Importa el router de upload
 const axios = require('axios'); //Axios para consumir API
+const bodyParser = require('body-parser');
 
 // Cargar variables de entorno
 dotenv.config();
@@ -12,6 +13,10 @@ const PORT = process.env.PORT || 3000;
 
 // Middleware para servir archivos estáticos desde la carpeta 'public'
 app.use(express.static(path.join(__dirname, "public")));
+
+// Middleware para analizar datos del formulario
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Configuración de Handlebars
 app.set("view engine", "hbs");
@@ -49,18 +54,36 @@ res.render("contacto", {
   });
 });
 
-app.get("/acerca", (req, res) => {
-res.render("acerca", {
-    title: "Acerca",
-    message: "Bienvenidos a acerca",
+app.get("/buscar", (req, res) => {
+res.render("buscar", {
+    character: null,
+    title: "Buscador",
+    message: "Bienvenidos al buscador de personajes",
   });
 });
 
-app.get("/usuarios", (req, res) => {
-  res.render("usuarios", {
-      title: "Usuarios",
-      message: "Bienvenidos a usuarios",
-  });
+// Ruta para manejar el envío del formulario
+app.post('/buscar', async (req, res) => {
+  const name = req.body.name;
+  const response = await axios.get(`https://dragonball-api.com/api/characters?name=${name}`);
+  const character = response.data; // Ajusta esto según la estructura de la respuesta de tu API
+
+  if(character.length > 0){
+    console.log(response.data)
+    res.render('buscar', { 
+      character, 
+      title: "Buscador Personajes",
+      message: "Bienvenidos al buscador de personajes", 
+    });
+  } else {
+    res.render('buscar', { 
+      character: null, 
+      title: "Buscador Personajes",
+      message: "Bienvenidos al buscador de personajes", 
+      error: 'Personaje no encontrado.' 
+    });
+  }
+  
 });
 
 // Ruta para consumir una API externa usando Axios

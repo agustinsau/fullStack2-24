@@ -1,0 +1,50 @@
+[{
+  "_id": {
+    "$oid": "6691b053296b21da9dd2e7f8"
+  },
+  "fecha": "2024-07-08",
+  "producto": "sillon",
+  "cantidad": 1,
+  "precio_unitario": 120000,
+  "total": 120
+},
+{
+  "_id": {
+    "$oid": "6691b23e296b21da9dd2e7f9"
+  },
+  "fecha": "2024-07-12",
+  "producto": "lavandina",
+  "cantidad": 3,
+  "precio_unitario": 8000,
+  "total": 24000
+},
+{
+  "_id": {
+    "$oid": "6691b23e296b21da9dd2e7fa"
+  },
+  "fecha": "2024-07-09",
+  "producto": "jabon liquido",
+  "cantidad": 2,
+  "precio_unitario": 1800,
+  "total": 3600
+},
+{
+  "_id": {
+    "$oid": "6691b23e296b21da9dd2e7fb"
+  },
+  "fecha": "2024-07-05",
+  "producto": "lampara",
+  "cantidad": 1,
+  "precio_unitario": 20000,
+  "total": 20000
+},
+{
+  "_id": {
+    "$oid": "6691b23e296b21da9dd2e7fc"
+  },
+  "fecha": "2024-07-12",
+  "producto": "detergente",
+  "cantidad": 5,
+  "precio_unitario": 4200,
+  "total": 21000
+}]
