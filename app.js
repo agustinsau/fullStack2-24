@@ -1,11 +1,18 @@
 const express = require("express");
+const connectDB = require("./src/config/db");
 const app = express();
+const axios = require('axios'); //Axios para consumir API
+const bodyParser = require('body-parser');
 const path = require("path");
 const dotenv = require("dotenv");
 const hbs = require("hbs");
+
+// Conectar a la base de datos MongoDB
+connectDB();
+
+//Rutas
 const uploadRouter = require("./routes/uploadRoutes"); // Importa el router de upload
-const axios = require('axios'); //Axios para consumir API
-const bodyParser = require('body-parser');
+const ventasRouter = require("./routes/ventaRoutes"); // Importa el router de ventas
 
 // Cargar variables de entorno
 dotenv.config();
@@ -25,6 +32,9 @@ hbs.registerPartials(path.join(__dirname, "views", "partials"));
 
 // Middleware para manejar rutas de carga de archivos
 app.use("/upload", uploadRouter);
+
+// Middleware para manejar rutas de ventas
+app.get("/ventas", ventasRouter);
 
 // Ruta principal con consumo de API usando axios
 app.get("/", async (req, res) => {
@@ -48,14 +58,14 @@ app.get("/", async (req, res) => {
 
 // Rutas
 app.get("/contacto", (req, res) => {
-res.render("contacto", {
+  res.render("contacto", {
     title: "Contacto",
     message: "Bienvenidos a contacto",
   });
 });
 
 app.get("/buscar", (req, res) => {
-res.render("buscar", {
+  res.render("buscar", {
     character: null,
     title: "Buscador",
     message: "Bienvenidos al buscador de personajes",
@@ -66,7 +76,7 @@ res.render("buscar", {
 app.post('/buscar', async (req, res) => {
   const name = req.body.name;
   const response = await axios.get(`https://dragonball-api.com/api/characters?name=${name}`);
-  const character = response.data; // Ajusta esto según la estructura de la respuesta de tu API
+  const character = response.data; 
 
   if(character.length > 0){
     console.log(response.data)
@@ -85,12 +95,6 @@ app.post('/buscar', async (req, res) => {
   }
   
 });
-
-// Ruta para consumir una API externa usando Axios
-// app.get('/api/data', async (req, res) => {
-  
-// });
- 
 
 // Manejo de errores 404
 app.use((req, res, next) => {

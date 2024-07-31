@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const multer = require("multer");
 const path = require("path");
-const personajesController = require("../src/controllers/articulosController");
+const ventaController = require("../src/controllers/ventaController");
 
 // Configuración de multer para almacenar archivos
 const storage = multer.diskStorage({
@@ -15,15 +15,21 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// Ruta para mostrar todos los articulos
-router.get("/articulos", articulosController.getAllArticulos);
+// Ruta para mostrar todas las ventas
+router.get("/ventas", ventaController.getAllVentas);
 
 // Ruta para mostrar el formulario
 router.get("/crear", (req, res) => {
-  res.render("formulario", { layout: "layouts/main" });
+  res.render("crearVenta", { layout: "layouts/main" });
 });
 
-// Ruta para manejar la creación de un nuevo articulo
-router.post("/crear", upload.single("imagen"), articulosController.createArticulo);
+// Ruta para manejar la creación de un nueva venta
+//router.post("/crear", upload.single("imagen"), ventasController.createVenta);
+
+// Ruta para mostrar el formulario de editar venta
+router.get("/editar/:id", ventaController.editVenta);
+
+// Ruta para eliminar la venta
+//router.get("/borrar/:id", ventasController.borrarArticulo);
 
 module.exports = router;

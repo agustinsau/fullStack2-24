@@ -1,0 +1,17 @@
+<h1> Recibos de Ventas Realizadas</h1>
+<ul>
+    {{#each ventas}}
+      <li class=""> 
+        <h1>{{producto}}</h1>
+        <div>
+          <img src="{{imagen}}"> 
+          <p>{{fecha}}</p>
+          <p>{{cantidad}}</p>
+          <p>{{precio_unit:}}</p>
+          <p>{{total}}</p>
+        </div>  
+        <button><a href="/ventas/editar/{{this.id}}">Editar</a></button>
+        <button><a href="/ventas/borrar/{{this.id}}">Borrar</a></button>
+      </li>
+    {{/each}}
+</ul>

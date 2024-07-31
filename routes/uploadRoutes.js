@@ -43,14 +43,15 @@ router.post("/upload", upload.single("file"), (req, res) => {
       message: "Archivo cargado exitosamente",
       filename: req.file.filename,
       fileExt: fileExtension,
+
     });
   } else {
       res.render("upload-failure", {
       title: "Carga Fallida",
       message: "Fallo la carga del archivo. Archivo no seleccionado o extension no permitida.",
+    
     });
   }
 });
-
 
 module.exports = router;
