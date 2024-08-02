@@ -1,5 +1,5 @@
 <h1>Editar Venta</h1>
-<form action="/edit/{{venta.id}}" method="POST" enctype="multipart/form-data">
+<form action="/ventas/editar/{{venta.id}}" method="POST" enctype="multipart/form-data">
   <label for="producto">Nombre:</label>
   <input type="text" id="nombre" name="producto" value="{{venta.producto}}" required><br><br>
 
@@ -10,7 +10,7 @@
   <input type="number" id="cantidad" name="cantidad" value="{{venta.cantidad}}" required><br><br>
 
   <label for="precio_unit">Precio Unitario:</label>
-  <input type="number" id="precio_unit" name="precio_unit" value="{{venta.precioUnitario}}" required><br><br>
+  <input type="number" id="precio_unit" name="precio_unit" value="{{venta.precio_unitario}}" required><br><br>
 
   <label for="total">Precio Total:</label>
   <input type="number" id="total" name="total" value="{{venta.total}}" required><br><br>

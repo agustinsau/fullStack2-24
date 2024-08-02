@@ -34,13 +34,13 @@ hbs.registerPartials(path.join(__dirname, "views", "partials"));
 app.use("/upload", uploadRouter);
 
 // Middleware para manejar rutas de ventas
-app.get("/ventas", ventasRouter);
+app.use("/ventas", ventasRouter);
 
 // Ruta principal con consumo de API usando axios
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get('https://dragonball-api.com/api/characters');
-    
+    console.log(response.data.items)
     // Envía la respuesta de la API externa al cliente
     res.render("index", {
       layout: "layouts/main",

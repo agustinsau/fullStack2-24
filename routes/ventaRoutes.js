@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Ruta para mostrar todas las ventas
-router.get("/ventas", ventaController.getAllVentas);
+router.get("/", ventaController.getAllVentas);
 
 // Ruta para mostrar el formulario
 router.get("/crear", (req, res) => {
@@ -32,4 +32,33 @@ router.get("/editar/:id", ventaController.editVenta);
 // Ruta para eliminar la venta
 //router.get("/borrar/:id", ventasController.borrarArticulo);
 
+
+
 module.exports = router;
+
+
+
+
+
+
+// // Ruta para mostrar todos los personajes
+// router.get("/", personajesController.getAllPersonajes);
+// // Ruta para mostrar el formulario
+// router.get("/crear", (req, res) => {
+//   res.render("formulario", { layout: "layouts/main" });
+// });
+// // Ruta para manejar la creación de un nuevo personaje
+// router.post("/crear", upload.single("imagen"), personajesController.createPersonaje);
+
+// // Ruta para mostrar el formulario de edición
+// router.get('/edit/:id', personajesController.editPersonaje);
+
+// // Ruta para manejar la actualización de un personaje
+// router.post("/edit/:id", upload.single("imagen"), personajesController.updatePersonaje);
+
+
+// // Ruta para eliminar un personaje
+// router.get("/delete/:id", personajesController.deletePersonaje);
+
+
+// module.exports = router;

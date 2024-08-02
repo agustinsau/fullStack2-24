@@ -14,7 +14,7 @@ const getAllVentas = async (req, res) => {
 };
 
 const createVenta = async (req, res) => {
-  const { producto, fecha, cantidad, precio_unit, total, imagen } = req.body; //formulario creacion venta
+  const { producto, fecha, cantidad, precio_unitario, total, imagen } = req.body; //formulario creacion venta
   const imagenPath = req.file ? req.file.filename : ''; // Ruta de la imagen guardada en el servidor
 
   try {
@@ -22,7 +22,7 @@ const createVenta = async (req, res) => {
         producto: producto,
         fecha: fecha,
         cantidad: parseInt(cantidad),
-        precio_unit: parseInt(precio_unit),
+        precio_unitario: parseInt(precio_unitario),
         total: parseInt(total),
         imagen: imagenPath,
     });
@@ -44,7 +44,7 @@ const editVenta = async (req, res) => {
     if(!venta){
       return res.status(404).send("Venta no encontrado");
     }
-    res.render("editVenta", { layout: "layout/main", venta});
+    res.render("editVenta", { layout: "layouts/main", venta});
 
   } catch {
     console.error("Error al obtener la venta:", error);
