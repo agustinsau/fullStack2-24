@@ -51,13 +51,26 @@ const editVenta = async (req, res) => {
   }
 };
 
-// const actualizarVenta = async (req, res) => {
-//   const { producto, fecha, cantidad, precio_unit, total, imagen } = req.body;
-//   const imagenPath = req.file ? req.file.filename : ''; 
-//   try {
+const updateVenta = async (req, res) => {
+  const { producto, fecha, cantidad, precio_unit, total, imagen } = req.body;
+  const imagenPath = req.file ? req.file.filename : ''; 
 
-//   }
-// }
+  try {
+    await Venta.findByIdAndUpdate(req.params.id, {
+      producto,
+      fecha,
+      cantidad,
+      precio_unit,
+      total,
+      imagen: imagenPath,
+    });
+    res.redirect("/ventas");
+
+  } catch (error) {
+    console.error("Error al actualizar la personaje:", error);
+    res.status(500).send("Hubo un error al actualizar el personaje");
+  }
+}
 
 // const borrarVenta = async (req, res) => {
 //   try {
@@ -68,5 +81,5 @@ module.exports = {
   getAllVentas,
  //createVenta,
   editVenta,
-  //actualizarVenta
+  updateVenta
 };
