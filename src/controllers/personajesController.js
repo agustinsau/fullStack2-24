@@ -14,26 +14,28 @@ const getAllCharacters = async (req, res) => {
 };
 
 const createPersonaje = async (req, res) => {
-  const { name, maxKi, race, gender, description, image, affiliation } = req.body; //formulario creacion personaje
+  const { name, ki, maxKi, race, gender, description, affiliation, image } = req.body; //formulario creacion personaje
   const imagenPath = req.file ? req.file.filename : ''; // Ruta de la imagen guardada en el servidor
 
   try {
-    const nuevoPersonaje = new MisPersonajes({
-        producto: producto,
-        fecha: fecha,
-        cantidad: parseInt(cantidad),
-        precio_unitario: parseInt(precio_unitario),
-        total: parseInt(total),
-        imagen: imagenPath,
+    const nuevoPersonaje = new Personaje({
+      name: name,
+      ki: ki,
+      maxKi: maxKi, 
+      race: race,
+      gender, gender,
+      description: description, 
+      affiliation: affiliation,
+      image: imagenPath
     });
 
-    await nuevaVenta.save();
+    await nuevoPersonaje.save();
 
-    res.redirect("/ventas");
+    res.redirect("/misPersonajes");
 
   } catch (error) {
-    console.error("Error al crear el venta:", error);
-    res.status(500).send("Hubo un error al crear el venta");
+    console.error("Error al crear el personaje:", error);
+    res.status(500).send("Hubo un error al crear el personaje");
 
   }
 };
@@ -64,7 +66,7 @@ const updatePersonaje = async (req, res) => {
       gender,
       description,
       affiliation,
-      image: `uploads/${imagenPath}`,
+      image: `../uploads/${req.file.filename}`,
     });
     res.redirect("/misPersonajes");
 
@@ -77,8 +79,8 @@ const updatePersonaje = async (req, res) => {
 //Elimina un personaje
 const deletePersonaje = async (req, res) => {
   try {
-    await Venta.findByIdAndDelete(req.params.id);
-    res.redirect("/ventas");
+    await Personaje.findByIdAndDelete(req.params.id);
+    res.redirect("/misPersonajes");
   } catch (error) {
     console.error("Error al eliminar el personaje:", error);
     res.status(500).send("Hubo un error al eliminar el personaje");

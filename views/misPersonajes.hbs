@@ -1,4 +1,6 @@
 <h1> Personajes Personales</h1>
+
+<button><a href="/misPersonajes/crear">Crear Nuevo Personaje </a></button>
 <ul>
     {{#each dbCharacters}}
       <li class=""> 
@@ -10,7 +12,7 @@
           <p>{{gender}}</p>
           <p>{{descirption}}</p>
           <p>{{affiliation}}</p>
-          <img src="{{image}}" alt="">
+          <img src="{{image}}" alt="{{name}}">
 
         </div>  
         <button><a href="/misPersonajes/editar/{{this.id}}">Editar</a></button>
