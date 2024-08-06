@@ -1,8 +1,8 @@
-const MisPersonajes = require('../models/personajesModel');
+const Personaje = require('../models/personajesModel');
 
 const getAllCharacters = async (req, res) => {
   try {
-    const dbCharacters = await MisPersonajes.find();
+    const dbCharacters = await Personaje.find();
     console.log(dbCharacters)
     res.render("misPersonajes", { layout: "layouts/main", dbCharacters });
 
@@ -13,12 +13,12 @@ const getAllCharacters = async (req, res) => {
   }
 };
 
-const createVenta = async (req, res) => {
-  const { producto, fecha, cantidad, precio_unitario, total, imagen } = req.body; //formulario creacion venta
+const createPersonaje = async (req, res) => {
+  const { name, maxKi, race, gender, description, image, affiliation } = req.body; //formulario creacion personaje
   const imagenPath = req.file ? req.file.filename : ''; // Ruta de la imagen guardada en el servidor
 
   try {
-    const nuevaVenta = new Venta({
+    const nuevoPersonaje = new MisPersonajes({
         producto: producto,
         fecha: fecha,
         cantidad: parseInt(cantidad),
@@ -38,33 +38,35 @@ const createVenta = async (req, res) => {
   }
 };
 
-const editVenta = async (req, res) => {
+const editPersonaje = async (req, res) => {
   try{
-    const venta = await Venta.findById(req.params.id);
-    if(!venta){
-      return res.status(404).send("Venta no encontrado");
+    const character = await Personaje.findById(req.params.id);
+    if(!character){
+      return res.status(404).send("Personaje no encontrado");
     }
-    res.render("editVenta", { layout: "layouts/main", venta});
+    res.render("editPersonaje", { layout: "layouts/main", character});
 
   } catch {
-    console.error("Error al obtener la venta:", error);
+    console.error("Error al obtener el personaje:", error);
   }
 };
 
-const updateVenta = async (req, res) => {
-  const { producto, fecha, cantidad, precio_unit, total, imagen } = req.body;
+const updatePersonaje = async (req, res) => {
+  const { name, ki, maxKi, race, gender, description, affiliation, image  } = req.body;
   const imagenPath = req.file ? req.file.filename : ''; 
 
   try {
-    await Venta.findByIdAndUpdate(req.params.id, {
-      producto,
-      fecha,
-      cantidad,
-      precio_unit,
-      total,
-      imagen: imagenPath,
+    await Personaje.findByIdAndUpdate(req.params.id, {
+      name,
+      ki,
+      maxKi,
+      race,
+      gender,
+      description,
+      affiliation,
+      image: `uploads/${imagenPath}`,
     });
-    res.redirect("/ventas");
+    res.redirect("/misPersonajes");
 
   } catch (error) {
     console.error("Error al actualizar la personaje:", error);
@@ -73,7 +75,7 @@ const updateVenta = async (req, res) => {
 }
 
 //Elimina un personaje
-const borrarArticulo = async (req, res) => {
+const deletePersonaje = async (req, res) => {
   try {
     await Venta.findByIdAndDelete(req.params.id);
     res.redirect("/ventas");
@@ -85,8 +87,8 @@ const borrarArticulo = async (req, res) => {
 
 module.exports = {
   getAllCharacters,
-  createVenta,
-  editVenta,
-  updateVenta,
-  borrarArticulo
+  createPersonaje,
+  editPersonaje,
+  updatePersonaje,
+  deletePersonaje
 };

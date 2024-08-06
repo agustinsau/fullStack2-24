@@ -12,6 +12,6 @@ const personajesDbSchema = new Schema({
   affiliation: { type: String, required: true },
 });
 
-const MisPersonajes = mongoose.model('MisPersonajes', personajesDbSchema);
+const Personaje = mongoose.model('misPersonajes', personajesDbSchema); // 'misPersonajes' = nombre del esquema o tabla en la bdd
 
-module.exports = MisPersonajes;
+module.exports = Personaje;
