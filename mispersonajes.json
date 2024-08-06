@@ -1,0 +1,130 @@
+[{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f89d"
+  },
+  "name": "Krillin",
+  "ki": "1.000.000",
+  "maxKi": "1 Billion",
+  "race": "Human",
+  "gender": "Male",
+  "description": "Amigo cercano de Goku y guerrero valiente, es un personaje del manga y anime de Dragon Ball. Es uno de los principales discípulos de Kame-Sen'nin, Guerrero Z, y el mejor amigo de Son Goku. Es junto a Bulma uno de los personajes de apoyo principales de Dragon Ball, Dragon Ball Z y Dragon Ball Super. Aparece en Dragon Ball GT como personaje secundario. En el Arco de Majin Boo, se retira de las artes marciales, optando por formar una familia, como el esposo de la Androide Número 18 y el padre de Marron.",
+  "image": "https://dragonball-api.com/characters/Krilin_Universo7.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f89e"
+  },
+  "name": "Tenshinhan",
+  "ki": "2.400.000",
+  "maxKi": "80.000.000",
+  "race": "Human",
+  "gender": "Male",
+  "description": "Maestro de las artes marciales y miembro de los Z Fighters.  Es un personaje que aparece en el manga y en el anime de Dragon Ball, Dragon Ball Z, Dragon Ball GT y posteriormente en Dragon Ball Super.",
+  "image": "https://dragonball-api.com/characters/Tenshinhan_Universo7.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f89f"
+  },
+  "name": "Yamcha",
+  "ki": "1.980.000",
+  "maxKi": "4.000.000",
+  "race": "Human",
+  "gender": "Male",
+  "description": "Luchador que solía ser un bandido del desierto.",
+  "image": "https://dragonball-api.com/characters/Final_Yamcha.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f8a0"
+  },
+  "name": "Chi-Chi",
+  "ki": "0",
+  "maxKi": "0",
+  "race": "Human",
+  "gender": "Female",
+  "description": "Esposa de Goku y madre de Gohan. Es la princesa del Monte Fry-pan siendo la hija de la fallecida reina de esta montaña y el Rey Gyuma, ella terminaría conociendo a Son Goku cuando era tan solo una niña para años más tarde durante su adolescencia ser su esposa y convertirse en la estricta pero amorosa madre de Gohan y Goten.",
+  "image": "https://dragonball-api.com/characters/ChiChi_DBS.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f8a1"
+  },
+  "name": "Gotenks",
+  "ki": "65.600.000",
+  "maxKi": "34.8 Billion",
+  "race": "Saiyan",
+  "gender": "Male",
+  "description": " Gotenks también conocido inicialmente como Gotrunk en el doblaje al español de España, es el resultado de la Danza de la Fusión llevada a cabo correctamente por Goten y Trunks.",
+  "image": "https://dragonball-api.com/characters/Gotenks_Artwork.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f8a2"
+  },
+  "name": "Trunks",
+  "ki": "50.000.000",
+  "maxKi": "37.4 septllion",
+  "race": "Saiyan",
+  "gender": "Male",
+  "description": "Hijo de Vegeta y Bulma. Es un mestizo entre humano terrícola y Saiyano nacido en la Tierra, e hijo de Bulma y Vegeta, el cual es introducido en el Arco de los Androides y Cell. Más tarde en su vida como joven, se termina convirtiendo en un luchador de artes marciales, el mejor amigo de Son Goten y en el hermano mayor de su hermana Bra.",
+  "image": "https://dragonball-api.com/characters/Trunks_Buu_Artwork.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f8a3"
+  },
+  "name": "Master Roshi",
+  "ki": "500.000",
+  "maxKi": "350.000.000",
+  "race": "Human",
+  "gender": "Male",
+  "description": "Maestro de artes marciales y mentor de Goku. Conocido bajo el nombre de Muten Rosh, fue en su momento el terrícola más fuerte de la Tierra, y mucha gente lo recuerda como el \"Dios de las Artes Marciales\", pero antes de poder ostentar dicho título tuvo que trabajar y estudiar las artes marciales con su maestro Mutaito y su eterno rival Tsuru-Sen'nin.",
+  "image": "https://dragonball-api.com/characters/roshi.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f8a4"
+  },
+  "name": "Bardock",
+  "ki": "450.000",
+  "maxKi": "180.000.000",
+  "race": "Saiyan",
+  "gender": "Male",
+  "description": "Es un saiyano de clase baja proveniente del Planeta Vegeta del Universo 7. Pertenece al Ejército Saiyano, que está bajo el liderazgo del Rey Vegeta, y es jefe de su escuadrón durante la anexión del planeta por parte de las fuerzas coloniales del Imperio de Freeza. Él es el esposo de Gine y padre biológico de Kakarotto y Raditz.",
+  "image": "https://dragonball-api.com/characters/Bardock_Artwork.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f8a5"
+  },
+  "name": "Launch",
+  "ki": "0",
+  "maxKi": "0",
+  "race": "Human",
+  "gender": "Female",
+  "description": "Personaje que sufre cambios de personalidad al estornudar. Es uno de los personajes principales del manga Dragon Ball y su anime homónimo; Lunch es una chica que sufre de un trastorno de personalidad doble que a raíz de sus reacciones alérgicas provoca que ella cambie entre dos personalidades diferentes, ninguna de las personalidades recuerda lo que la otra hizo o dijo.",
+  "image": "https://dragonball-api.com/characters/Lunch_traje_de_sirvienta_en_el_manga.webp",
+  "affiliation": "Z Fighter"
+},
+{
+  "_id": {
+    "$oid": "66b15882cfff04150ea8f8a6"
+  },
+  "name": "Mr. Satan",
+  "ki": "450",
+  "maxKi": "5.000",
+  "race": "Human",
+  "gender": "Male",
+  "description": "Luchador humano famoso por llevarse el mérito de las victorias de los Guerreros Z.",
+  "image": "https://dragonball-api.com/characters/Mr_Satan_DBSuper.webp",
+  "affiliation": "Other"
+}]
