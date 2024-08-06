@@ -12,7 +12,7 @@ connectDB();
 
 //Rutas
 const uploadRouter = require("./routes/uploadRoutes"); // Importa el router de upload
-const ventasRouter = require("./routes/ventaRoutes"); // Importa el router de ventas
+const personajesRoutes = require("./routes/personajesRoutes"); // Importa el router de personajes de la bdd
 
 // Cargar variables de entorno
 dotenv.config();
@@ -34,7 +34,7 @@ hbs.registerPartials(path.join(__dirname, "views", "partials"));
 app.use("/upload", uploadRouter);
 
 // Middleware para manejar rutas de ventas
-app.use("/ventas", ventasRouter);
+app.use("/misPersonajes", personajesRoutes);
 
 // Ruta principal con consumo de API usando axios
 app.get("/", async (req, res) => {

@@ -1,14 +1,14 @@
-const Venta = require('../models/ventaModel');
+const MisPersonajes = require('../models/personajesModel');
 
-const getAllVentas = async (req, res) => {
+const getAllCharacters = async (req, res) => {
   try {
-    const ventas = await Venta.find();
-    console.log(ventas)
-    res.render("ventas", { layout: "layouts/main", ventas });
+    const dbCharacters = await MisPersonajes.find();
+    console.log(dbCharacters)
+    res.render("misPersonajes", { layout: "layouts/main", dbCharacters });
 
   } catch (error) {
-    console.error("Error al obtener ventas:", error);
-    res.status(500).send("Hubo un error al obtener los ventas");
+    console.error("Error al obtener personajes:", error);
+    res.status(500).send("Hubo un error al obtener los personajes");
 
   }
 };
@@ -72,14 +72,21 @@ const updateVenta = async (req, res) => {
   }
 }
 
-// const borrarVenta = async (req, res) => {
-//   try {
-//     await Venta = await Venta.findByIdAndDelete(req.params.id);
-// }
+//Elimina un personaje
+const borrarArticulo = async (req, res) => {
+  try {
+    await Venta.findByIdAndDelete(req.params.id);
+    res.redirect("/ventas");
+  } catch (error) {
+    console.error("Error al eliminar el personaje:", error);
+    res.status(500).send("Hubo un error al eliminar el personaje");
+  }
+};
 
 module.exports = {
-  getAllVentas,
- //createVenta,
+  getAllCharacters,
+  createVenta,
   editVenta,
-  updateVenta
+  updateVenta,
+  borrarArticulo
 };

@@ -1,0 +1,19 @@
+<h1> Personajes Personales</h1>
+<ul>
+    {{#each dbCharacters}}
+      <li class=""> 
+        <h1>{{name}}</h1>
+        <div>
+          <p>{{ki}}</p>
+          <p>{{maxKi}}</p>
+          <p>{{race}}</p>
+          <p>{{gender}}</p>
+          <p>{{descirption}}</p>
+          <p>{{affiliation}}</p>
+          <img src="{{imagen}}"> 
+        </div>  
+        <button><a href="/misPersonajes/editar/{{this.id}}">Editar</a></button>
+        <button><a href="/misPersonajes/borrar/{{this.id}}">Borrar</a></button>
+      </li>
+    {{/each}}
+</ul>
