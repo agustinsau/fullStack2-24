@@ -40,7 +40,7 @@ app.use("/misPersonajes", personajesRoutes);
 app.get("/", async (req, res) => {
   try {
     const response = await axios.get('https://dragonball-api.com/api/characters');
-    console.log(response.data.items)
+    //console.log(response.data.items)
     // Envía la respuesta de la API externa al cliente
     res.render("index", {
       layout: "layouts/main",

@@ -6,7 +6,7 @@ const multer = require("multer");
 // Configuración de Multer para la carga de archivos
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../uploads")); // Directorio donde se guardan los archivos subidos
+    cb(null, path.join(__dirname, "../public/uploads/")); // Directorio donde se guardan los archivos subidos
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname); // Nombre original del archivo subido

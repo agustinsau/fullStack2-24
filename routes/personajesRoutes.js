@@ -4,14 +4,14 @@ const multer = require("multer");
 const path = require("path");
 const personajesController = require("../src/controllers/personajesController");
 
-// Configuración de Multer para la carga de archivos
+// Configuración de multer para almacenar archivos
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, path.join(__dirname, "../uploads")); // Directorio donde se guardan los archivos subidos
+    cb(null, path.join(__dirname, "../public/uploads/")); // Ruta donde se guardarán los archivos
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname); // Nombre original del archivo subido
-  },
+    cb(null, Date.now() + path.extname(file.originalname)); // Agrega un timestamp al nombre del archivo
+  }
 });
 
 const fileFilter = (req, file, cb) => { 
