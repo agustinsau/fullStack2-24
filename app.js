@@ -57,39 +57,35 @@ app.get("/", async (req, res) => {
 });
 
 // Rutas
-app.get("/contacto", (req, res) => {
-  res.render("contacto", {
-    title: "Contacto",
-    message: "Bienvenidos a contacto",
-  });
-});
 
-app.get("/buscar", (req, res) => {
-  res.render("buscar", {
-    character: null,
-    title: "Buscador",
-    message: "Bienvenidos al buscador de personajes",
-  });
-});
+// app.get("/buscar", (req, res) => {
+//   res.render("buscar", {
+//     character: null,
+//     title: "Buscador",
+//     message: "Bienvenidos al buscador de personajes",
+//   });
+// });
 
-// Ruta para manejar el envío del formulario
-app.post('/buscar', async (req, res) => {
+// Ruta para manejar busqueda de personajes por api
+app.post('/', async (req, res) => {
   const name = req.body.name;
   const response = await axios.get(`https://dragonball-api.com/api/characters?name=${name}`);
-  const character = response.data; 
+  const characters = response.data; 
 
-  if(character.length > 0){
-    console.log(response.data)
-    res.render('buscar', { 
-      character, 
-      title: "Buscador Personajes",
-      message: "Bienvenidos al buscador de personajes", 
+  if(characters.length > 0){
+    //console.log(response.data)
+    res.render("index", { 
+      layout: "layouts/main",
+      characters, 
+      // title: "Buscador Personajes",
+      // message: "Bienvenidos al buscador de personajes", 
     });
   } else {
-    res.render('buscar', { 
-      character: null, 
-      title: "Buscador Personajes",
-      message: "Bienvenidos al buscador de personajes", 
+    res.render("index", { 
+      layout: "layouts/main",
+      //characters: null, 
+      // title: "Buscador Personajes",
+      // message: "Bienvenidos al buscador de personajes", 
       error: 'Personaje no encontrado.' 
     });
   }
