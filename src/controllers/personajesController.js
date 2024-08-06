@@ -4,7 +4,7 @@ const getAllCharacters = async (req, res) => {
   try {
     const dbCharacters = await Personaje.find();
     console.log(dbCharacters)
-    res.render("misPersonajes", { layout: "layouts/main", dbCharacters });
+    res.render("misPersonajes", { layout: "layouts/main", dbCharacters, formAction: "misPersonajes/buscar" });
 
   } catch (error) {
     console.error("Error al obtener personajes:", error);
@@ -87,10 +87,44 @@ const deletePersonaje = async (req, res) => {
   }
 };
 
+const searchCharacter = async (req, res) => {
+  const nameSearched = req.body.name;
+  
+  try {
+    // Busca personajes en la base de datos que coincidan con el nombre
+    const dbCharacters = await Personaje.find({ name: nameSearched });
+
+    console.log(dbCharacters)
+    if (dbCharacters.length > 0) {
+      
+      res.render("misPersonajes", { 
+        layout: "layouts/main",
+        formAction: "misPersonajes/buscar",
+        dbCharacters,
+        // title: "Buscador Personajes",
+        // message: "Bienvenidos al buscador de personajes", 
+      });
+    } else {
+      res.render("misPersonajes", { 
+        layout: "layouts/main",
+        // characters: null, 
+        // title: "Buscador Personajes",
+        // message: "Bienvenidos al buscador de personajes", 
+        error: 'Personaje no encontrado.' 
+      });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error al realizar la consulta.');
+  }
+  
+};
+
 module.exports = {
   getAllCharacters,
   createPersonaje,
   editPersonaje,
   updatePersonaje,
-  deletePersonaje
+  deletePersonaje,
+  searchCharacter
 };

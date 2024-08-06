@@ -45,7 +45,7 @@ app.get("/", async (req, res) => {
     res.render("index", {
       layout: "layouts/main",
       title: "Inicio",
-      message: "Bienvenidos a nuestra aplicación de carga de archivos",
+      message: "Bienvenidos a nuestra aplicación",
       characters: response.data.items,
     });
     

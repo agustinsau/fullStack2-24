@@ -28,6 +28,9 @@ const upload = multer({ storage: storage, fileFilter: fileFilter });
 // Ruta para mostrar todas los personajes personales
 router.get("/", personajesController.getAllCharacters);
 
+// Ruta para manejar busqueda de personajes por bdd
+router.post('/buscar', personajesController.searchCharacter);
+
 // Ruta para mostrar el formulario de creacion
 router.get("/crear", (req, res) => {
   res.render("crearPersonaje", { layout: "layouts/main" });
@@ -46,30 +49,3 @@ router.post("/editar/:id", upload.single("image"), personajesController.updatePe
 router.get("/borrar/:id", personajesController.deletePersonaje);
 
 module.exports = router;
-
-
-
-
-
-
-// // Ruta para mostrar todos los personajes
-// router.get("/", personajesController.getAllPersonajes);
-// // Ruta para mostrar el formulario
-// router.get("/crear", (req, res) => {
-//   res.render("formulario", { layout: "layouts/main" });
-// });
-// // Ruta para manejar la creación de un nuevo personaje
-// router.post("/crear", upload.single("imagen"), personajesController.createPersonaje);
-
-// // Ruta para mostrar el formulario de edición
-// router.get('/edit/:id', personajesController.editPersonaje);
-
-// // Ruta para manejar la actualización de un personaje
-// router.post("/edit/:id", upload.single("imagen"), personajesController.updatePersonaje);
-
-
-// // Ruta para eliminar un personaje
-// router.get("/delete/:id", personajesController.deletePersonaje);
-
-
-// module.exports = router;
