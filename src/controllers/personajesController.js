@@ -3,7 +3,7 @@ const Personaje = require('../models/personajesModel');
 const getAllCharacters = async (req, res) => {
   try {
     const dbCharacters = await Personaje.find();
-    console.log(dbCharacters)
+    //console.log(dbCharacters)
     res.render("misPersonajes", { layout: "layouts/main", dbCharacters, formAction: "misPersonajes/buscar" });
 
   } catch (error) {
@@ -54,8 +54,17 @@ const editPersonaje = async (req, res) => {
 };
 
 const updatePersonaje = async (req, res) => {
-  const { name, ki, maxKi, race, gender, description, affiliation, image  } = req.body;
-  const imagenPath = req.file ? req.file.filename : ''; 
+  const { name, ki, maxKi, race, gender, description, affiliation } = req.body;
+  //const imagenPath = req.file ? req.file.filename : ''; 
+
+  let imagenPath = ''; 
+
+  if(req.file){
+    imagenPath = req.file.filename;
+  } else {
+    const personaje = await Personaje.findById(req.params.id);
+    imagenPath = personaje.image;
+  }
 
   try {
     await Personaje.findByIdAndUpdate(req.params.id, {
@@ -65,8 +74,8 @@ const updatePersonaje = async (req, res) => {
       race,
       gender,
       description,
+      image: imagenPath,
       affiliation,
-      image: `../uploads/${req.file.filename}`,
     });
     res.redirect("/misPersonajes");
 

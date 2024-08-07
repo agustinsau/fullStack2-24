@@ -14,7 +14,10 @@
           <p>{{gender}}</p>
           <p>{{descirption}}</p>
           <p>{{affiliation}}</p>
-          <img src="./uploads/{{image}}" alt="{{name}}">
+          {{#if image}}
+            <img src="./uploads/{{image}}" alt="{{name}}">
+          {{/if}}
+          
 
         </div>  
         <button><a href="/misPersonajes/editar/{{this.id}}">Editar</a></button>
