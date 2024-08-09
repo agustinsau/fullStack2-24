@@ -211,7 +211,6 @@ main {
 }
 
 .character-actions button {
-  background-color: #007bff;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -225,6 +224,10 @@ main {
   text-decoration: none;
 }
 
+.btn-delete {
+  background-color: #dc3545;
+}
+
 .btn-edit {
   background-color: #007bff;
 }
@@ -233,9 +236,6 @@ main {
   background-color: #0056b3;
 }
 
-.btn-delete {
-  background-color: #dc3545;
-}
 
 .btn-delete:hover {
   background-color: #c82333;
