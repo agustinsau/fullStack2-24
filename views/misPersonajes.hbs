@@ -1,27 +1,32 @@
-<h1> Personajes Personales</h1>
+<header>
+    <h1>Personajes Personales</h1>
+    {{> buscador}}
+    <button class="btn-create"><a href="/misPersonajes/crear">Crear Nuevo Personaje</a></button>
+</header>
 
-{{> buscador}}
-
-<button><a href="/misPersonajes/crear">Crear Nuevo Personaje </a></button>
-<ul>
+<main>
+  <ul class="character-list">
     {{#each dbCharacters}}
-      <li class=""> 
-        <h1>{{name}}</h1>
-        <div>
-          <p>{{ki}}</p>
-          <p>{{maxKi}}</p>
-          <p>{{race}}</p>
-          <p>{{gender}}</p>
-          <p>{{descirption}}</p>
-          <p>{{affiliation}}</p>
-          {{#if image}}
-            <img src="./uploads/{{image}}" alt="{{name}}">
-          {{/if}}
-          
-
-        </div>  
-        <button><a href="/misPersonajes/editar/{{this.id}}">Editar</a></button>
-        <button><a href="/misPersonajes/borrar/{{this.id}}">Borrar</a></button>
+      <li class="character-item"> 
+        <h2 class="character-name">{{name}}</h2>
+        <div class="character-info">
+            {{#if image}}
+              <img class="character-image" src="./uploads/{{image}}" alt="{{name}}">
+            {{/if}}
+            <div class="character-details">
+              <p><strong>Ki:</strong> {{ki}}</p>
+              <p><strong>Max Ki:</strong> {{maxKi}}</p>
+              <p><strong>Race:</strong> {{race}}</p>
+              <p><strong>Gender:</strong> {{gender}}</p>
+              <p><strong>Description:</strong> {{descirption}}</p>
+              <p><strong>Affiliation:</strong> {{affiliation}}</p>
+            </div>
+        </div>
+        <div class="character-actions">
+          <button class="btn-edit"><a href="/misPersonajes/editar/{{this.id}}">Editar</a></button>
+          <button class="btn-delete"><a href="/misPersonajes/borrar/{{this.id}}">Borrar</a></button>
+        </div>
       </li>
     {{/each}}
-</ul>
+  </ul>
+</main>

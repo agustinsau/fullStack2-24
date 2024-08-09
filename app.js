@@ -56,16 +56,6 @@ app.get("/", async (req, res) => {
   
 });
 
-// Rutas
-
-// app.get("/buscar", (req, res) => {
-//   res.render("buscar", {
-//     character: null,
-//     title: "Buscador",
-//     message: "Bienvenidos al buscador de personajes",
-//   });
-// });
-
 // Ruta para manejar busqueda de personajes por api
 app.post('/', async (req, res) => {
   const name = req.body.name;
@@ -77,15 +67,11 @@ app.post('/', async (req, res) => {
     res.render("index", { 
       layout: "layouts/main",
       characters, 
-      // title: "Buscador Personajes",
-      // message: "Bienvenidos al buscador de personajes", 
     });
+
   } else {
     res.render("index", { 
-      layout: "layouts/main",
-      //characters: null, 
-      // title: "Buscador Personajes",
-      // message: "Bienvenidos al buscador de personajes", 
+      layout: "layouts/main", 
       error: 'Personaje no encontrado.' 
     });
   }

@@ -1,28 +1,29 @@
+<!-- Editar Personaje -->
 <h1>Editar Personaje</h1>
-<form action="/misPersonajes/editar/{{character.id}}" method="POST" enctype="multipart/form-data">
-  <label for="name">Nombre:</label>
-  <input type="text" id="name" name="name" value="{{character.name}}" required><br><br>
+<form action="/misPersonajes/editar/{{character.id}}" method="POST" enctype="multipart/form-data" class="form-character">
+  <label for="name">Nombre</label>
+  <input type="text" id="name" name="name" value="{{character.name}}" required>
 
   <label for="ki">Ki:</label>
-  <input type="text" id="ki" name="ki" value="{{character.ki}}" required><br><br>
+  <input type="text" id="ki" name="ki" value="{{character.ki}}" required>
 
-  <label for="maxKi">Max Ki:</label>
-  <input type="text" id="maxKi" name="maxKi" value="{{character.maxKi}}" required><br><br>
+  <label for="maxKi">Max Ki</label>
+  <input type="text" id="maxKi" name="maxKi" value="{{character.maxKi}}" required>
 
-  <label for="race">Raza:</label>
-  <input type="text" id="race" name="race" value="{{character.race}}" required><br><br>
+  <label for="race">Raza</label>
+  <input type="text" id="race" name="race" value="{{character.race}}" required>
 
-  <label for="gender">Genero:</label>
-  <input type="text" id="gender" name="gender" value="{{character.gender}}" required><br><br>
+  <label for="gender">Genero</label>
+  <input type="text" id="gender" name="gender" value="{{character.gender}}" required>
 
-  <label for="description">Descripcion:</label>
-  <input type="text" id="description" name="description" value="{{character.description}}" required><br><br>
+  <label for="description">Descripción</label>
+  <input type="text" id="description" name="description" value="{{character.description}}" required>
 
-  <label for="affiliation">Afiliacion:</label>
-  <input type="text" id="affiliation" name="affiliation" value="{{character.affiliation}}" required><br><br>
+  <label for="affiliation">Afiliación</label>
+  <input type="text" id="affiliation" name="affiliation" value="{{character.affiliation}}" required>
 
-  <label for="image">Imagen:</label>
-  <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .webp" value="{{character.image}}"><br><br>
+  <label for="image">Imagen</label>
+  <input type="file" id="image" name="image" accept=".jpg, .jpeg, .png, .webp">
 
   <button type="submit">Actualizar Personaje</button>
 </form>
